@@ -29,10 +29,6 @@ public class PeopleInfoServiceStubImpl implements PeopleInfoService {
 
     @Override
     public Person add(Person person) {
-        Calendar cal1 = Calendar.getInstance();
-        cal1.set(1988,11,30);
-        person.setBirthday(cal1.getTime());
-        person.setPps(this.persons.stream().mapToInt(p->p.getPps()).max().getAsInt()+1);
         this.persons.add(person);
         return person;
     }

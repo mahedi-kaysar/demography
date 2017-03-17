@@ -1,5 +1,7 @@
 package demograpy.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -8,6 +10,8 @@ import java.util.Date;
 public class Person {
     private String name;
     private int pps;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String mobileNumber;
 

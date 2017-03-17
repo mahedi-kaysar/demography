@@ -23,23 +23,26 @@ public class PeopleDetailFormController {
     PeopleInfoService peopleInfoService;
 
     @RequestMapping("/person/add")
-    public String showDemographicFrom(Model model){
-
-        model.addAttribute("peopleDetailForm",new PeopleDetailForm());
+    public String showPeopleDetailForm(Model model){
+        PeopleDetailForm peopleDetailForm = new PeopleDetailForm();
+        model.addAttribute("peopleDetailForm",peopleDetailForm);
         return "posts/people_detail_form";
     }
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
-    public String addNewRecord(@Valid @ModelAttribute PeopleDetailForm demographicForm, BindingResult bindingResult, Model model){
+    public String addNewRecord(@Valid @ModelAttribute PeopleDetailForm peopleDetailForm, BindingResult bindingResult, Model model){
 
+        System.out.println(peopleDetailForm);
         if (bindingResult.hasErrors()) {
+            System.out.println("peopleDetailForm Error");
             return "posts/people_detail_form";
         }
-        peopleInfoService.add(new Person(demographicForm.getName(),
-                demographicForm.getPps(),demographicForm.getBirthday(),
-                demographicForm.getMobileNumber()));
+        peopleInfoService.add(new Person(peopleDetailForm.getName(),
+                peopleDetailForm.getPps(),peopleDetailForm.getBirthday(),
+                peopleDetailForm.getMobileNumber()));
         List<Person> persons = peopleInfoService.findAll();
         model.addAttribute("personList",persons);
+        System.out.println("peopleDetailForm success");
         return "posts/person_list";
     }
 }
