@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Person Demography</title>
+</head>
+
+<body>
+
+<a href="index.html" th:href="@{/}">Home</a><p></p>
+<a href="demographic_form.html" th:href="@{/person/add}">Add new record</a>
+<main id="posts">
+    <h2>Person's details</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>PPS</th>
+            <th>DATE-OF-BIRTH</th>
+            <th>Mobile</th>
+        </tr>
+        <tr th:each="p: ${personList}">
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.pps}"></td>
+            <td th:text="${p.birthday}"></td>
+            <td th:text="${p.mobileNumber}"></td>
+        </tr>
+    </table>
+</main>
+</body>
+
+</html>
