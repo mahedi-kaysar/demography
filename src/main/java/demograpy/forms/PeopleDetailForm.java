@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by mahedi on 3/17/2017.
  */
-public class DemographicForm {
+public class PeopleDetailForm {
 
     private String name;
     private int pps;

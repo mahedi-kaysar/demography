@@ -8,22 +8,22 @@
 
 <a href="index.html" th:href="@{/}">Home</a><p></p>
 <a href="person_list.html" th:href="@{/persons}">List of records</a>
-<form id="demographic-form" role="form" th:action="@{/person/add}" method="post" th:object="${demographicForm}">
+<form id="demographic-form" role="form" th:action="@{/person/add}" method="post" th:object="${peopleDetailForm}">
     <div>
         <label for="name">Field 1</label>
-        <input type="text" id="name" name="name" th:field="${demographicForm.name}"/>
+        <input type="text" id="name" name="name" th:field="${peopleDetailForm.name}"/>
     </div>
     <div>
         <label for="pps">Field 1</label>
-        <input type="text" id="pps" name="pps" th:field="${demographicForm.pps}"/>
+        <input type="text" id="pps" name="pps" th:field="${peopleDetailForm.pps}"/>
     </div>
     <div>
         <label for="birthday">Field 1</label>
-        <input type="text" id="birthday" name="birthday" th:field="${demographicForm.birthday}"/>
+        <input type="text" id="birthday" name="birthday" th:field="${peopleDetailForm.birthday}"/>
     </div>
     <div>
         <label for="mobileNumber">Field 1</label>
-        <input type="text" id="mobileNumber" name="mobileNumber" th:field="${demographicForm.mobileNumber}"/>
+        <input type="text" id="mobileNumber" name="mobileNumber" th:field="${peopleDetailForm.mobileNumber}"/>
     </div>
 
     <div>

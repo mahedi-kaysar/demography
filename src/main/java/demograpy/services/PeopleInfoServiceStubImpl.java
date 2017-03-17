@@ -11,7 +11,7 @@ import java.util.List;
  * Created by mahedi on 3/16/2017.
  */
 @Service
-public class PersonServiceStubImpl implements PersonService{
+public class PeopleInfoServiceStubImpl implements PeopleInfoService {
 
     private List<Person> persons = new ArrayList<Person>(){{
         Calendar cal1 = Calendar.getInstance();
@@ -29,7 +29,6 @@ public class PersonServiceStubImpl implements PersonService{
 
     @Override
     public Person add(Person person) {
-        System.out.println(person.getName()+"==============add");
         Calendar cal1 = Calendar.getInstance();
         cal1.set(1988,11,30);
         person.setBirthday(cal1.getTime());

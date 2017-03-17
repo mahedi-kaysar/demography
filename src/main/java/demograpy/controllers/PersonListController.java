@@ -1,7 +1,7 @@
 package demograpy.controllers;
 
 import demograpy.models.Person;
-import demograpy.services.PersonService;
+import demograpy.services.PeopleInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +16,11 @@ import java.util.List;
 public class PersonListController {
 
     @Autowired
-    PersonService personService;
+    PeopleInfoService peopleInfoService;
 
     @RequestMapping("/persons")
     public String getUserListView(Model model){
-        List<Person> persons = personService.findAll();
+        List<Person> persons = peopleInfoService.findAll();
         model.addAttribute("personList",persons);
         return "posts/person_list";
     }

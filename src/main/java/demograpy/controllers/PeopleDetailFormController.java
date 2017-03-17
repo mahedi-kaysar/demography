@@ -1,8 +1,8 @@
 package demograpy.controllers;
 
-import demograpy.forms.DemographicForm;
+import demograpy.forms.PeopleDetailForm;
 import demograpy.models.Person;
-import demograpy.services.PersonService;
+import demograpy.services.PeopleInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,27 +18,27 @@ import java.util.List;
  * Created by mahedi on 3/16/2017.
  */
 @Controller
-public class DemographicFormController {
+public class PeopleDetailFormController {
     @Autowired
-    PersonService personService;
+    PeopleInfoService peopleInfoService;
 
     @RequestMapping("/person/add")
     public String showDemographicFrom(Model model){
 
-        model.addAttribute("demographicForm",new DemographicForm());
-        return "posts/demographic_form";
+        model.addAttribute("peopleDetailForm",new PeopleDetailForm());
+        return "posts/people_detail_form";
     }
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
-    public String addNewRecord(@Valid @ModelAttribute DemographicForm demographicForm, BindingResult bindingResult, Model model){
+    public String addNewRecord(@Valid @ModelAttribute PeopleDetailForm demographicForm, BindingResult bindingResult, Model model){
 
         if (bindingResult.hasErrors()) {
-            return "posts/demographic_form";
+            return "posts/people_detail_form";
         }
-        personService.add(new Person(demographicForm.getName(),
+        peopleInfoService.add(new Person(demographicForm.getName(),
                 demographicForm.getPps(),demographicForm.getBirthday(),
                 demographicForm.getMobileNumber()));
-        List<Person> persons = personService.findAll();
+        List<Person> persons = peopleInfoService.findAll();
         model.addAttribute("personList",persons);
         return "posts/person_list";
     }
