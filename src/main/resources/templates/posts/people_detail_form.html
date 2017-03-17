@@ -9,19 +9,32 @@
 <a href="index.html" th:href="@{/}">Home</a><p></p>
 <a href="person_list.html" th:href="@{/persons}">List of records</a>
 <form id="demographic-form" role="form" th:action="@{/person/add}" method="post" th:object="${peopleDetailForm}">
-    <div><label for="name">*Name</label></div>
-    <div><input id="name" type="text" name="name" th:field="${peopleDetailForm.name}" /></div>
 
-    <div><label for="pps">**PPS</label></div>
-    <div><input id="pps" type="number" name="pps" th:field="${peopleDetailForm.pps}"/></div>
-
-    <div><label for="birthday">*BIRTHDAY</label></div>
-    <div><input id="birthday" type="date" name="birthday" th:field="${peopleDetailForm.birthday}"/></div>
-
-    <div><label for="mobileNumber">MOBILE</label></div>
-    <div><input id="mobileNumber" type="number" name="mobileNumber" th:field="${peopleDetailForm.mobileNumber}"/></div>
-
-    <div><button type="submit">Add</button></div>
+    <table>
+        <tr>
+            <td><label for="name">*Name</label></td>
+            <td><input id="name" type="text" name="name" th:field="${peopleDetailForm.name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" bgcolor="red">Name error message</td>
+        </tr>
+        <tr>
+            <td><label for="pps">**PPS</label></td>
+            <td><input id="pps" type="number" name="pps" th:field="${peopleDetailForm.pps}" /></td>
+            <td th:if="${#fields.hasErrors('pps')}" th:errors="*{pps}" bgcolor="red">PPS error message</td>
+        </tr>
+        <tr>
+            <td><label for="birthday">*BIRTHDAY</label></td>
+            <td><input id="birthday" type="date" name="birthday" th:field="${peopleDetailForm.birthday}"/></td>
+            <td th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" bgcolor="red">Birthday error message</td>
+        </tr>
+        <tr>
+            <td><label for="mobileNumber">MOBILE</label></td>
+            <td><input id="mobileNumber" type="number" name="mobileNumber" th:field="${peopleDetailForm.mobileNumber}" /></td>
+            <td th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}" >mobileNumber error message</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Add</button></td>
+        </tr>
+    </table>
 </form>
 
 </body>

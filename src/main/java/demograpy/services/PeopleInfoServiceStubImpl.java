@@ -16,10 +16,10 @@ public class PeopleInfoServiceStubImpl implements PeopleInfoService {
     private List<Person> persons = new ArrayList<Person>(){{
         Calendar cal1 = Calendar.getInstance();
         cal1.set(1988,11,30);
-        add(new Person("Mahedi",12345,cal1.getTime(),"0899641664"));
+        add(new Person("Mahedi","100001",cal1.getTime(),"0899641664"));
         Calendar cal2 = Calendar.getInstance();
         cal2.set(1988,12,21);
-        add(new Person("Kaysar",12346,cal2.getTime(),"0894736796"));
+        add(new Person("Kaysar","100002",cal2.getTime(),"0894736796"));
     }};
 
     @Override

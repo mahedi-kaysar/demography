@@ -3,6 +3,7 @@ package demograpy.forms;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -10,10 +11,12 @@ import java.util.Date;
  */
 public class PeopleDetailForm {
 
-    @NotNull
+    @Size(min=4, max = 20)
     private String name;
-    @NotNull
-    private int pps;
+
+    @Size(min=6, max=6)
+    private String pps;
+
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
@@ -28,11 +31,11 @@ public class PeopleDetailForm {
         this.name = name;
     }
 
-    public int getPps() {
+    public String getPps() {
         return pps;
     }
 
-    public void setPps(int pps) {
+    public void setPps(String pps) {
         this.pps = pps;
     }
 
@@ -56,7 +59,7 @@ public class PeopleDetailForm {
     public String toString() {
         return "PeopleDetailForm{" +
                 "name='" + name + '\'' +
-                ", pps=" + pps +
+                ", pps='" + pps + '\'' +
                 ", birthday=" + birthday +
                 ", mobileNumber='" + mobileNumber + '\'' +
                 '}';

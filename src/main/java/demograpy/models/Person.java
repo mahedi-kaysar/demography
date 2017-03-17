@@ -9,14 +9,14 @@ import java.util.Date;
  */
 public class Person {
     private String name;
-    private int pps;
+    private String pps;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String mobileNumber;
 
     public Person(){ }
-    public Person(String name, int pps, Date birthday, String mobileNumber) {
+    public Person(String name, String pps, Date birthday, String mobileNumber) {
         this.name = name;
         this.pps = pps;
         this.birthday = birthday;
@@ -31,11 +31,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getPps() {
+    public String getPps() {
         return pps;
     }
 
-    public void setPps(int pps) {
+    public void setPps(String pps) {
         this.pps = pps;
     }
 
@@ -59,7 +59,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", pps=" + pps +
+                ", pps='" + pps + '\'' +
                 ", birthday=" + birthday +
                 ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
