@@ -10,4 +10,5 @@ import java.util.List;
 public interface PeopleInfoService {
     List<Person> findAll();
     Person add(Person person);
+    Person findByPPS(String pps);
 }

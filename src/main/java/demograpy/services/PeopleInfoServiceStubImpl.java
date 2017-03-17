@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by mahedi on 3/16/2017.
@@ -33,4 +34,11 @@ public class PeopleInfoServiceStubImpl implements PeopleInfoService {
         return person;
     }
 
+    @Override
+    public Person findByPPS(String pps) {
+        List<Person> personsbyPPS = this.persons.stream().filter(p->p.getPps().equals(pps)).collect(Collectors.toList());
+        if(personsbyPPS.size()==1)
+            return personsbyPPS.get(0);
+        return null;
+    }
 }

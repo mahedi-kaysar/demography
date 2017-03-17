@@ -1,6 +1,6 @@
 package demograpy.controllers;
 
-import demograpy.forms.PeopleDetailForm;
+import demograpy.forms.PersonDetailForm;
 import demograpy.models.Person;
 import demograpy.services.PeopleInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,31 +18,31 @@ import java.util.List;
  * Created by mahedi on 3/16/2017.
  */
 @Controller
-public class PeopleDetailFormController {
+public class PersonDetailFormController {
     @Autowired
     PeopleInfoService peopleInfoService;
 
     @RequestMapping("/person/add")
     public String showPeopleDetailForm(Model model){
-        PeopleDetailForm peopleDetailForm = new PeopleDetailForm();
-        model.addAttribute("peopleDetailForm",peopleDetailForm);
-        return "posts/people_detail_form";
+        PersonDetailForm personDetailForm = new PersonDetailForm();
+        model.addAttribute("personDetailForm", personDetailForm);
+        return "posts/person_detail_form";
     }
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
-    public String addNewRecord(@Valid @ModelAttribute PeopleDetailForm peopleDetailForm, BindingResult bindingResult, Model model){
+    public String addNewRecord(@Valid @ModelAttribute PersonDetailForm personDetailForm, BindingResult bindingResult, Model model){
 
-        System.out.println(peopleDetailForm);
+        System.out.println(personDetailForm);
         if (bindingResult.hasErrors()) {
-            System.out.println("peopleDetailForm Error");
-            return "posts/people_detail_form";
+            System.out.println("personDetailForm Error");
+            return "posts/person_detail_form";
         }
-        peopleInfoService.add(new Person(peopleDetailForm.getName(),
-                peopleDetailForm.getPps(),peopleDetailForm.getBirthday(),
-                peopleDetailForm.getMobileNumber()));
+        peopleInfoService.add(new Person(personDetailForm.getName(),
+                personDetailForm.getPps(), personDetailForm.getBirthday(),
+                personDetailForm.getMobileNumber()));
         List<Person> persons = peopleInfoService.findAll();
         model.addAttribute("personList",persons);
-        System.out.println("peopleDetailForm success");
+        System.out.println("personDetailForm success");
         return "posts/person_list";
     }
 }
