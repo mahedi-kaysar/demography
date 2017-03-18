@@ -2,7 +2,13 @@ package demograpy.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.util.Comparator;
 
 /**
  * The class represent a Person Entity,
@@ -12,17 +18,29 @@ import java.time.LocalDate;
  *
  * Created by mahedi on 3/16/2017.
  */
-public class Person {
+@Entity
+@Table(name = "persons")
+public class Person implements Serializable{
+    private static final long serialVersionUID = 1L;
 
+    @Column(nullable = false)
     private String name;
-    private String pps;
+
+    @Id
+    @Column(nullable = false, unique = true)
+    private Long pps;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private LocalDate birthday;
+
+    @Column
     private String mobileNumber="08";
 
+    @Column(nullable = false)
+    private LocalDateTime createTime = LocalDateTime.now();
     public Person(){ }
-    public Person(String name, String pps, LocalDate birthday, String mobileNumber) {
+    public Person(String name, Long pps, LocalDate birthday, String mobileNumber) {
         this.name = name;
         this.pps = pps;
         this.birthday = birthday;
@@ -37,11 +55,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getPps() {
+    public Long getPps() {
         return pps;
     }
 
-    public void setPps(String pps) {
+    public void setPps(Long pps) {
         this.pps = pps;
     }
 
@@ -61,6 +79,14 @@ public class Person {
         this.mobileNumber = mobileNumber;
     }
 
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -70,4 +96,17 @@ public class Person {
                 ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
+
+
+//    @Override
+//    public int compareTo(Person that) {
+//
+//        LocalDateTime thisDateTime = this.getCreateTime();
+//        LocalDateTime thatDateTime = that.getCreateTime();
+//        if(thisDateTime.isAfter(thatDateTime))
+//            return -1;
+//        else if(thatDateTime.isAfter(thisDateTime))
+//            return 1;
+//        return 0;
+//    }
 }

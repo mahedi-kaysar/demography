@@ -18,9 +18,9 @@ public class PersonDetailForm {
     @NotEmpty @Size(max=25, message = "Max 25 Characters")
     private String name;
 
-    @NotEmpty
+    @NotNull
     @PPSConstraint
-    private String pps;
+    private Long pps;
 
     @NotNull @DateTimeFormat(pattern = "yyyy-MM-dd")
     @AgeConstraint(age = 16, message = "may not be over 16 years old")
@@ -37,11 +37,11 @@ public class PersonDetailForm {
         this.name = name;
     }
 
-    public String getPps() {
+    public Long getPps() {
         return pps;
     }
 
-    public void setPps(String pps) {
+    public void setPps(Long pps) {
         this.pps = pps;
     }
 

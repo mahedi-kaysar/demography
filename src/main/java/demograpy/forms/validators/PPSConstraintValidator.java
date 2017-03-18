@@ -1,7 +1,7 @@
 package demograpy.forms.validators;
 
 import demograpy.models.Person;
-import demograpy.services.PeopleInfoService;
+import demograpy.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
@@ -13,7 +13,7 @@ import javax.validation.ConstraintValidatorContext;
 public class PPSConstraintValidator implements ConstraintValidator<PPSConstraint,Object> {
 
     @Autowired
-    PeopleInfoService peopleInfoService;
+    PersonService personService;
 
     @Override
     public void initialize(PPSConstraint constraintAnnotation) {
@@ -28,8 +28,8 @@ public class PPSConstraintValidator implements ConstraintValidator<PPSConstraint
      */
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
-        String pps = (String) value;
-        Person person = peopleInfoService.findByPPS(pps);
+        Long pps =  (Long) value;
+        Person person = personService.findById(pps);
         return person==null;
     }
 }

@@ -20,7 +20,7 @@
     <dependencies>
 
         <!--
-        configure the Thymeleaf templating engine
+            configure the Thymeleaf template engine
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -28,8 +28,8 @@
         </dependency>
 
         <!--
-         Till the above configurations, the project libraries will include
-         all Spring Core, Spring Boot, Spring MVC and Thymeleaf libraries
+            Till the above configurations, the project libraries will include
+            all Spring Core, Spring Boot, Spring MVC and Thymeleaf libraries
         -->
 
         <dependency>
@@ -37,10 +37,9 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
-        <!-- For enabling Java8TimeDialect.
-        org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.ThymeleafJava8TimeDialect class
-        does auto-configuration of the dialect if Java 8 is available
-        and org.thymeleaf.extras.java8time.dialect.Java8TimeDialect is on the classpath.
+        <!--
+            Enabling Java8TimeDialect, ThymeleafJava8TimeDialect class does auto-configuration
+            of the dialect if Java 8 is available and Java8TimeDialect is on the classpath.
         -->
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
@@ -48,6 +47,19 @@
             <version>2.1.0.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <!-- need to specify the common versions here of different modules-->
@@ -63,5 +75,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
     </build>
 </project>

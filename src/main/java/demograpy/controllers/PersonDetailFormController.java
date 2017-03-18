@@ -2,7 +2,7 @@ package demograpy.controllers;
 
 import demograpy.forms.PersonDetailForm;
 import demograpy.models.Person;
-import demograpy.services.PeopleInfoService;
+import demograpy.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ import java.util.List;
 public class PersonDetailFormController {
 
     @Autowired
-    PeopleInfoService peopleInfoService;
+    PersonService personService;
 
     /**
      *
@@ -56,20 +56,12 @@ public class PersonDetailFormController {
         if (bindingResult.hasErrors()) {
             return "posts/person_detail_form";
         }
-        /*
-        although PersonDetailForm and Person class is similar,
-        I separated the Person class from the Form class in order to make a Entity class and for simplicity.
-
-        (Need to think more, why not peopleInfoService.add(personDetailForm)?)
-        */
-        peopleInfoService.add(new Person(personDetailForm.getName(),
+        personService.create(new Person(personDetailForm.getName(),
                 personDetailForm.getPps(), personDetailForm.getBirthday(),
                 personDetailForm.getMobileNumber()));
+        List<Person> newPersonList = personService.findAllSortedByCreateTimeDesc();
+        model.addAttribute("newPersonList",newPersonList);
 
-        List<Person> persons = peopleInfoService.findAll();
-        model.addAttribute("personList",persons);
-
-        //return "posts/person_list";
         return "redirect:/persons";
     }
 }

@@ -7,7 +7,6 @@
 <body>
 
 <form id="demographic-form" role="form" th:action="@{/person/add}" method="post" th:object="${personDetailForm}">
-    <!--<h2>Add new record</h2>-->
     <table align="center">
         <tr>
             <td><label for="name">Name</label></td>
@@ -34,11 +33,6 @@
             <td align="center"><button type="submit">Submit</button></td>
         </tr>
     </table>
-
-    <!--<div align="center">-->
-        <!--<a href="index.html" th:href="@{/}">Home</a>-->
-        <!--<a href="person_list.html" th:href="@{/persons}">List of records</a>-->
-    <!--</div>-->
 </form>
 
 </body>

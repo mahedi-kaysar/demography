@@ -1,7 +1,7 @@
 package demograpy.controllers;
 
 import demograpy.models.Person;
-import demograpy.services.PeopleInfoService;
+import demograpy.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,19 +16,18 @@ import java.util.List;
 public class PersonListController {
 
     @Autowired
-    PeopleInfoService peopleInfoService;
-
+    PersonService personService;
     /**
      *
      * This method return person_list.html along with personList model.
-     *
+     * The list is sorted by record creation date in descending order
      * @param model
      * @return person_list.html
      */
     @RequestMapping("/persons")
     public String getUserListView(Model model){
-        List<Person> persons = peopleInfoService.findAll();
-        model.addAttribute("personList",persons);
+        List<Person> newPersonList = personService.findAllSortedByCreateTimeDesc();
+        model.addAttribute("newPersonList",newPersonList);
         return "posts/person_list";
     }
 }
