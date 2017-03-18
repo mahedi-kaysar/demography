@@ -20,8 +20,7 @@
         <tr th:each="p: ${personList}">
             <td th:text="${p.name}"></td>
             <td th:text="${p.pps}" ></td>
-            <!--<td th:text="${p.birthday}" ></td>-->
-            <td th:text="${#calendars.format(p.birthday,'dd/MM/yyyy')}" ></td>
+            <td th:text="${#temporals.format(p.birthday,'dd/MM/yyyy')}" ></td>
             <td th:text="${p.mobileNumber}"></td>
         </tr>
     </table>

@@ -37,9 +37,20 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+        <!-- For enabling Java8TimeDialect.
+        org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.ThymeleafJava8TimeDialect class
+        does auto-configuration of the dialect if Java 8 is available
+        and org.thymeleaf.extras.java8time.dialect.Java8TimeDialect is on the classpath.
+        -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-java8time</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
 
     </dependencies>
 
+    <!-- need to specify the common versions here of different modules-->
     <properties>
         <java.version>1.8</java.version>
     </properties>

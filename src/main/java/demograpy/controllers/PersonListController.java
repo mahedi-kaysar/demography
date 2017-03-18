@@ -18,6 +18,13 @@ public class PersonListController {
     @Autowired
     PeopleInfoService peopleInfoService;
 
+    /**
+     *
+     * This method return person_list.html along with personList model.
+     *
+     * @param model
+     * @return person_list.html
+     */
     @RequestMapping("/persons")
     public String getUserListView(Model model){
         List<Person> persons = peopleInfoService.findAll();

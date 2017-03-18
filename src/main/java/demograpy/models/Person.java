@@ -2,21 +2,27 @@ package demograpy.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
+ * The class represent a Person Entity,
+ * Analogous to person table
+ *
+ * need to define the JPA annotations
+ *
  * Created by mahedi on 3/16/2017.
  */
 public class Person {
+
     private String name;
     private String pps;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birthday;
+    private LocalDate birthday;
     private String mobileNumber;
 
     public Person(){ }
-    public Person(String name, String pps, Date birthday, String mobileNumber) {
+    public Person(String name, String pps, LocalDate birthday, String mobileNumber) {
         this.name = name;
         this.pps = pps;
         this.birthday = birthday;
@@ -39,11 +45,11 @@ public class Person {
         this.pps = pps;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

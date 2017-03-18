@@ -6,9 +6,8 @@ import demograpy.forms.validators.PPSConstraint;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by mahedi on 3/17/2017.
@@ -23,11 +22,10 @@ public class PersonDetailForm {
     private String pps;
 
     @NotNull @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Past(message = "Birthday should be past")
     @AgeConstraint(age = 16,message = "You should be at least 16 years older")
-    private Date birthday;
+    private LocalDate birthday;
 
-    @MobileNumberConstraint(message = "Digits must be 0 or 11 and start with ZERO.")
+    @MobileNumberConstraint(message = "Num digits either 0 or 11 (must start with 0)")
     private String mobileNumber;
 
     public String getName() {
@@ -46,11 +44,11 @@ public class PersonDetailForm {
         this.pps = pps;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

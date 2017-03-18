@@ -4,8 +4,6 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by mahedi on 3/17/2017.
@@ -20,21 +18,20 @@ public class AgeConstraintValidator implements ConstraintValidator<AgeConstraint
         this.age = constraintAnnotation.age();
     }
 
+    /**
+     * This method validate a date by
+     *  checking future date, checking given age limit and empty date
+     * @param localDate
+     * @param context
+     * @return true if valid, otherwise false
+     */
     @Override
-    public boolean isValid(Object date, ConstraintValidatorContext context) {
-        if(date==null) return false;
-        Date inputDate = (Date) date;
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(inputDate);
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
+    public boolean isValid(Object localDate, ConstraintValidatorContext context) {
+        // if no date has been selected in the form
+        if(localDate==null) return false;
+        LocalDate inputDate = (LocalDate) localDate;
         LocalDate today = LocalDate.now();
-        LocalDate birthday = LocalDate.of(year, month,day);
-        Period p = Period.between(birthday,today);
-        System.out.println("Input Age="+p.getYears());
-        System.out.println("Required Age="+age);
+        Period p = Period.between(inputDate,today);
         return p.getYears()>=age;
     }
 }

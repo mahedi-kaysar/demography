@@ -14,6 +14,12 @@ public class MobileNumberConstraintValidator implements ConstraintValidator<Mobi
     }
 
 
+    /**
+     *
+     * @param value
+     * @param context
+     * @return true if empty or num digits is equal 10
+     */
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         String mobileNumber = (String) value;

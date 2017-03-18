@@ -20,6 +20,12 @@ public class PPSConstraintValidator implements ConstraintValidator<PPSConstraint
 
     }
 
+    /**
+     *
+     * @param value
+     * @param context
+     * @return true if not available in the peopleInfoService
+     */
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         String pps = (String) value;

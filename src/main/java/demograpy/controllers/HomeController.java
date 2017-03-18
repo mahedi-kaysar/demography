@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    /**
+     * This method return the home page of the website
+     *
+     * @return index.html
+     */
     @RequestMapping("/")
     public String index(){
         return "index";

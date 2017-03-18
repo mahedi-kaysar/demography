@@ -3,8 +3,8 @@ package demograpy.services;
 import demograpy.models.Person;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,13 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class PeopleInfoServiceStubImpl implements PeopleInfoService {
 
+    // Some Stub data for testing
     private List<Person> persons = new ArrayList<Person>(){{
-        Calendar cal1 = Calendar.getInstance();
-        cal1.set(1988,11,30);
-        add(new Person("Mahedi","100001",cal1.getTime(),"0899641664"));
-        Calendar cal2 = Calendar.getInstance();
-        cal2.set(1988,12,21);
-        add(new Person("Kaysar","100002",cal2.getTime(),"0894736796"));
+        LocalDate localDate = LocalDate.now();
+        add(new Person("Mahedi","100001",localDate,"0899641664"));
+        add(new Person("Kaysar","100002",localDate,"0894736796"));
     }};
 
     @Override
