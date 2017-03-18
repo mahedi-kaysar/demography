@@ -32,6 +32,6 @@ public class AgeConstraintValidator implements ConstraintValidator<AgeConstraint
         LocalDate inputDate = (LocalDate) localDate;
         LocalDate today = LocalDate.now();
         Period p = Period.between(inputDate,today);
-        return p.getYears()>=age;
+        return p.getYears()>age;
     }
 }

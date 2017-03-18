@@ -19,7 +19,7 @@ public class Person {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
-    private String mobileNumber;
+    private String mobileNumber="08";
 
     public Person(){ }
     public Person(String name, String pps, LocalDate birthday, String mobileNumber) {

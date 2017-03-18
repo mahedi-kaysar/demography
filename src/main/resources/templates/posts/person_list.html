@@ -9,13 +9,13 @@
 <body>
 
 <main id="posts">
-    <h2>Records</h2>
-    <table>
+    <!--<h2>Records</h2>-->
+    <table align="center">
         <tr>
             <th width="100" align="left">Name</th>
-            <th width="100" align="left">PPS</th>
-            <th width="100" align="left">BIRTHDAY</th>
-            <th width="100" align="left">MOBILE</th>
+            <th width="100" align="left">PPSN</th>
+            <th width="100" align="left">DOB</th>
+            <th width="100" align="left">Mobile Phone</th>
         </tr>
         <tr th:each="p: ${personList}">
             <td th:text="${p.name}"></td>
@@ -24,8 +24,8 @@
             <td th:text="${p.mobileNumber}"></td>
         </tr>
     </table>
-    <a href="index.html" th:href="@{/}">Home</a>
-    <a href="people_detail_form.html" th:href="@{/person/add}">Add new record</a>
+    <!--<a href="index.html" th:href="@{/}">Home</a>-->
+    <!--<a href="people_detail_form.html" th:href="@{/person/add}">Add new record</a>-->
 
 </main>
 </body>

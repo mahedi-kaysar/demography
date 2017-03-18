@@ -19,6 +19,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = MobileNumberConstraintValidator.class)
 public @interface MobileNumberConstraint {
     String message();
+    int digits();
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

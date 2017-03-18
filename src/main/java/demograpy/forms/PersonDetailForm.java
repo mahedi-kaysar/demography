@@ -3,6 +3,7 @@ package demograpy.forms;
 import demograpy.forms.validators.AgeConstraint;
 import demograpy.forms.validators.MobileNumberConstraint;
 import demograpy.forms.validators.PPSConstraint;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
@@ -14,19 +15,19 @@ import java.time.LocalDate;
  */
 public class PersonDetailForm {
 
-    @NotNull @Size(min=4, message = "Length should be between 4 to 20")
+    @NotEmpty @Size(max=25, message = "Max 25 Characters")
     private String name;
 
-    @NotNull @Size(min=6, max=6,message = "PPS must be 6 digits")
-    @PPSConstraint(message = "PPS is already registered or its invalid(If starts with ZERO)")
+    @NotEmpty
+    @PPSConstraint
     private String pps;
 
     @NotNull @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @AgeConstraint(age = 16,message = "You should be at least 16 years older")
+    @AgeConstraint(age = 16, message = "may not be over 16 years old")
     private LocalDate birthday;
 
-    @MobileNumberConstraint(message = "Num digits either 0 or 11 (must start with 0)")
-    private String mobileNumber;
+    @MobileNumberConstraint(digits = 10, message = "Must begin with 08 prefix and 10 digits")
+    private String mobileNumber="08";
 
     public String getName() {
         return name;

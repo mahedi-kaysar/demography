@@ -16,9 +16,9 @@ public class PeopleInfoServiceStubImpl implements PeopleInfoService {
 
     // Some Stub data for testing
     private List<Person> persons = new ArrayList<Person>(){{
-        LocalDate localDate = LocalDate.now();
-        add(new Person("Mahedi","100001",localDate,"0899641664"));
-        add(new Person("Kaysar","100002",localDate,"0894736796"));
+//        LocalDate localDate = LocalDate.now();
+//        add(new Person("Mahedi","100001",localDate,"0899641664"));
+//        add(new Person("Kaysar","100002",localDate,"0894736796"));
     }};
 
     @Override

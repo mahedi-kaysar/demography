@@ -8,9 +8,10 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class MobileNumberConstraintValidator implements ConstraintValidator<MobileNumberConstraint,Object>{
 
-
+    int digits;
     @Override
     public void initialize(MobileNumberConstraint constraintAnnotation) {
+        this.digits = constraintAnnotation.digits();
     }
 
 
@@ -24,7 +25,7 @@ public class MobileNumberConstraintValidator implements ConstraintValidator<Mobi
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         String mobileNumber = (String) value;
         if(mobileNumber.length()==0) return true;
-        if(!mobileNumber.startsWith("0") || mobileNumber.length()!=10)
+        if(!mobileNumber.startsWith("08") || mobileNumber.length()!=digits)
             return false;
         return true;
     }

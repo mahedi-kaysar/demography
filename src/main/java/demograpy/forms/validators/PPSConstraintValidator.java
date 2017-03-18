@@ -29,7 +29,6 @@ public class PPSConstraintValidator implements ConstraintValidator<PPSConstraint
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         String pps = (String) value;
-        if(pps.startsWith("0")) return false;
         Person person = peopleInfoService.findByPPS(pps);
         return person==null;
     }

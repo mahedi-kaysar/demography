@@ -18,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = PPSConstraintValidator.class)
 public @interface PPSConstraint {
-    String message();
+    String message() default "PPS must be unique";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

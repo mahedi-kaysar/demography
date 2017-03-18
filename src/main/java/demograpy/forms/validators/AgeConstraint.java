@@ -19,7 +19,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface AgeConstraint {
     String message();
     int age();
-
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};

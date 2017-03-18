@@ -69,6 +69,7 @@ public class PersonDetailFormController {
         List<Person> persons = peopleInfoService.findAll();
         model.addAttribute("personList",persons);
 
-        return "posts/person_list";
+        //return "posts/person_list";
+        return "redirect:/persons";
     }
 }
