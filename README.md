@@ -4,12 +4,13 @@ This projects is a management software for keeping the demographic details for
 being enable the future analysis.
 
 # Technology used
-    1) Spring Boot (v1.5.2)
-    2) Thymeleaf (v2.1.5)
-    3) Spring (v4.0)
-    4) Intellij Idea (Community edition)
-    5) Maven (3.3.9)
-    6) Git
+    1) Java 8
+    2) Spring Boot (v1.5.2)
+    3) Thymeleaf (v2.1.5)
+    4) Spring 4
+    5) Intellij Idea (Community edition)
+    6) Maven (3.3.9)
+    7) Git
 # Getting Started
     1) git clone https://github.com/mahedi-kaysar/demography.git
     2) cd demography
