@@ -1,28 +1,40 @@
 # Demography
-Demography is the statistical study of populations, especially human beings.
-As a very general science, it can analyse any kind of dynamic living population,
-i.e., one that changes over time or space (see population dynamics).
-Demography encompasses the study of the size, structure, and distribution of these populations,
-and spatial or temporal changes in them in response to birth, migration, ageing, and death.
+Demography is the statistical study of populations, especially human beings. 
+This projects is a management software for keeping the demographic details for
+being enable the future analysis.
 
 # Technology used
-    1) Spring Boot
-    2) Thymeleaf
-    3) Spring MVC
-    4) Intellij Idea
-    5) Maven
+    1) Spring Boot (v1.5.2)
+    2) Thymeleaf (v2.1.5)
+    3) Spring (v4.0)
+    4) Intellij Idea (Community edition)
+    5) Maven (3.3.9)
     6) Git
-# Featured developed
-    1) Simple Demographic form
-    2) Add new record
-    3) View list of peoples.
+# Getting Started
+    1) git clone https://github.com/mahedi-kaysar/demography.git
+    2) cd demography
+    3) mvn package && java -jar target/demography-1.0-SNAPSHOT.jar
+    4) http://localhost:8080/
+    
+# Features developed
+    1) Total 3 pages 
+    2) Homepage: contains 2 links including (i) add new record and (ii) person list
+    3) First link contains a form, anyone can put details. After submitting it retrun 2nd link with the new record
+    4) Second one shows the list of persons.
+    5) Every page contains links of other 2 pages for visiting quickly
+    
 # Technical difficulties covered
-    1) Thymeleaf form binding
-    2) Used 3 controller from different kind of pages
-    3) Bean creation
-# Getting
-  Run: DemographyApplication.java
-  Open: localhost:8080
+    1) Thymeleaf form binding, Java 8 TimeDialect.
+    2) Spring MVC, Dependency Injection, Autowire, Annotations,
+    4) Multiple controllers have been used
+    5) Custom annotations have been created for contraint validations
 
+# TODO
+    1) Unit and Integration testing
+    2) Checking the code reusablity and upating properly
+    3) Adding JPA, Spring Data
+    4) Database
+    5) Nice UI design.
+     
 # Conclusion
-Enjoy Demographic Analytics!
+Enjoy Demographic Analytics! New features are coming.
