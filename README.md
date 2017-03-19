@@ -29,7 +29,9 @@ being enable the future analysis.
     3) First link contains a form, anyone can put details. After submitting it retrun 2nd link with the new record
     4) Second one shows the list of persons.
 # Some snapshots 
-   ![PersonForm](/docs/images/personform.PNG?raw=true)
+   ![Person Form](/docs/images/personform.PNG?raw=true) |
+   ![Form Validation](/docs/images/formvalidation.PNG?raw=true)
+   ![Person List](/docs/images/person-list.PNG?raw=true)
 
 # Technical difficulties covered (with addition to previous versions)
     1) Thymeleaf form binding, Java 8 TimeDialect.
