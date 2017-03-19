@@ -36,7 +36,7 @@ public class PersonDetailFormController {
     public String showPeopleDetailForm(Model model){
         PersonDetailForm personDetailForm = new PersonDetailForm();
         model.addAttribute("personDetailForm", personDetailForm);
-        return "posts/person_detail_form";
+        return "demography/person_detail_form";
     }
 
     /**
@@ -54,7 +54,7 @@ public class PersonDetailFormController {
 
         System.out.println(personDetailForm);
         if (bindingResult.hasErrors()) {
-            return "posts/person_detail_form";
+            return "demography/person_detail_form";
         }
         personService.create(new Person(personDetailForm.getName(),
                 personDetailForm.getPps(), personDetailForm.getBirthday(),

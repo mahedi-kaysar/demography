@@ -28,6 +28,6 @@ public class PersonListController {
     public String getUserListView(Model model){
         List<Person> newPersonList = personService.findAllSortedByCreateTimeDesc();
         model.addAttribute("newPersonList",newPersonList);
-        return "posts/person_list";
+        return "demography/person_list";
     }
 }
