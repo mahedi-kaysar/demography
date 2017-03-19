@@ -28,7 +28,11 @@ being enable the future analysis.
     2) Homepage: contains 2 links including (i) add new record and (ii) person list
     3) First link contains a form, anyone can put details. After submitting it retrun 2nd link with the new record
     4) Second one shows the list of persons.
-    
+# Some snapshots 
+   ![Person Form](/docs/images/personform.PNG?raw=true) |
+   ![Form Validation](/docs/images/formvalidation.PNG?raw=true)
+   ![Person List](/docs/images/person-list.PNG?raw=true)
+
 # Technical difficulties covered (with addition to previous versions)
     1) Thymeleaf form binding, Java 8 TimeDialect.
     2) Spring MVC, Dependency Injection, Autowire, Annotations,
