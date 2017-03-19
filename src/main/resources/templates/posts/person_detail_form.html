@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:ddl="http://www.thymeleaf.org/dandelion">
 <head>
     <meta charset="UTF-8" />
     <title>Person Demography</title>
@@ -20,13 +21,14 @@
         </tr>
         <tr>
             <td><label for="birthday">Date of Birth</label></td>
-            <td><input id="birthday" type="date" name="birthday" th:field="${personDetailForm.birthday}"/></td>
+            <td><input id="birthday" type="date" name="birthday" placeholder="dd/mm/yyyy" th:field="${personDetailForm.birthday}" /></td>
             <td th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" bgcolor="red">Birthday error message</td>
+
         </tr>
         <tr>
             <td><label for="mobileNumber">Mobile Phone</label></td>
             <td><input id="mobileNumber" type="number" name="mobileNumber" th:field="${personDetailForm.mobileNumber}" /></td>
-            <td th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}" bgcolor="red">mobileNumber error message</td>
+            <td th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}" bgcolor="red">MobileNumber error message</td>
         </tr>
         <tr>
             <td></td>
@@ -34,6 +36,5 @@
         </tr>
     </table>
 </form>
-
 </body>
 </html>

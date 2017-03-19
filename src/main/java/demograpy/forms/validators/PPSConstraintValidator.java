@@ -28,6 +28,7 @@ public class PPSConstraintValidator implements ConstraintValidator<PPSConstraint
      */
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
+        if(value==null) return false;
         Long pps =  (Long) value;
         Person person = personService.findById(pps);
         return person==null;

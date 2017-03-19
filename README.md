@@ -10,21 +10,24 @@ being enable the future analysis.
     4) Spring MVC (4)
     5) Spring Data JPA
     6) H2 database
-    5) Intellij Idea (Community edition)
-    6) Maven (3.3.9)
-    7) Git
+    7) Intellij Idea (Community edition)
+    8) Maven (3.3.9)
+    
 # Getting Started
     1) git clone https://github.com/mahedi-kaysar/demography.git
     2) cd demography
     3) mvn package && java -jar target/demography-1.0-SNAPSHOT.jar
-    4) http://localhost:8080/
+    4) Open the bellow link browser. Please use google chrome 
+        as the project was tested in that browser only. The datepicker may not work in other browser
+        as I have used html5 input type 'date'.
     
+        http://localhost:8080/
+    5) please raise issue in github if you found and feedback is appricited.
 # Features developed
     1) Total 3 pages 
     2) Homepage: contains 2 links including (i) add new record and (ii) person list
     3) First link contains a form, anyone can put details. After submitting it retrun 2nd link with the new record
     4) Second one shows the list of persons.
-    5) Every page contains links of other 2 pages for visiting quickly
     
 # Technical difficulties covered (with addition to previous versions)
     1) Thymeleaf form binding, Java 8 TimeDialect.

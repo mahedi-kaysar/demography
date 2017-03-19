@@ -8,8 +8,8 @@
 
 <body>
 
-<main id="posts">
-    <table align="center">
+<main id="persons">
+    <table align="center" th:if="${not #lists.isEmpty(newPersonList)}">
         <tr>
             <th width="100" align="left">Name</th>
             <th width="100" align="left">PPSN</th>
@@ -23,6 +23,7 @@
             <td th:text="${p.mobileNumber}"></td>
         </tr>
     </table>
+    <div align="center" th:if="${#lists.isEmpty(newPersonList)}"><h2>No records have been created</h2></div>
 </main>
 </body>
 
